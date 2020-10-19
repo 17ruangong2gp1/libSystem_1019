@@ -17,7 +17,7 @@
      	<th>操作</th>
      </tr>
    <tbody th:each="li:${list}" >
-     	<tr >
+     	<tr th:if="${li.borrowed}  != 1" >
      	<td th:text="${li.bid}" hidden="hide"></td>
          <td th:text="${li.bname}"></td>
          <td th:text="${li.borrowed}"></td>

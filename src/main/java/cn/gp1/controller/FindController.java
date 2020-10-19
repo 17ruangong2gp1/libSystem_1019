@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.gp1.pojo.Books;
 import cn.gp1.pojo.BorrowData;
 import cn.gp1.pojo.Users;
 import cn.gp1.service.BorrowService;
@@ -38,21 +39,22 @@ public class FindController {
 
 	@RequestMapping("/findBook")
 	public String findBook(HttpServletRequest request, HttpSession session) {
-		request.setAttribute("list", findService.findBook());
-		request.getSession().setAttribute("session", findService.findBook());
+		List<Books> list=findService.findBook();
+	
+		request.setAttribute("list",list);
+		request.getSession().setAttribute("session", list);
 		return "Books";
 	}
 
 	@RequestMapping("/delete")
 	public String delete(Integer bid, HttpSession ss) {
 		Users u = (Users) ss.getAttribute("user");
-		System.out.println(u);
-		if (0 == u.getState()) {
-			findService.delete(bid);
+		if (u.getState()==0){
+			findService.updateBook(bid);
 			u.setState(1);
 			findService.save(u);
-			BorrowData bd= new BorrowData(u.getUid(),bid,new Date());
-			bservice.saveBook(bd);
+			//BorrowData bd= new BorrowData(u.getUid(),bid,new Date());
+			//bservice.saveBook(bd);
 			return "redirect:/findBook";
 		} else {
 			return "redirect:/login";

@@ -38,13 +38,18 @@ public class FindServiceImpl implements FindService {
 		return bookRepository.findAll();
 	}
 	@Override
-	public boolean delete(Integer bid) {
+	public boolean updateBook(Integer bid) {
 		// TODO Auto-generated method stub
-		return bookMapper.delete(bid);
+		return bookMapper.update(bid);
 	}
 	@Override
 	public void save(Users user) {
 		// TODO Auto-generated method stub
 		uRepository.save(user);
+	}
+	@Override
+	public void saveBook(Books book) {
+		// TODO Auto-generated method stub
+		this.bookRepository.save(book);
 	}
 }

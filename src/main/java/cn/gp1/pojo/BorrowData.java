@@ -17,6 +17,9 @@ public class BorrowData {
 		private Integer bid;
 		
 		@Column
+		private Integer uid;
+		
+		@Column
 		private Date ddate;
 		
 		/*@OneToOne(mappedBy="uname")
@@ -31,7 +34,15 @@ public class BorrowData {
 			this.did = did;
 		}
 
+		
 
+		public Integer getUid() {
+			return uid;
+		}
+
+		public void setUid(Integer uid) {
+			this.uid = uid;
+		}
 
 		public Integer getBid() {
 			return bid;
@@ -55,9 +66,11 @@ public class BorrowData {
 			super();
 		}
 
-		public BorrowData(Integer did,  Integer bid,  Date ddate) {
+		public BorrowData(Integer uid,  Integer bid,  Date ddate) {
 			super();
-			this.did = did;
+			
+			this.did = 1;
+			this.uid = uid;
 			this.bid = bid;
 			this.ddate = ddate;
 		}

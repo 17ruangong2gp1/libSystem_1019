@@ -1,6 +1,7 @@
 package cn.gp1.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -11,7 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.gp1.pojo.BorrowData;
 import cn.gp1.pojo.Users;
+import cn.gp1.service.BorrowService;
 import cn.gp1.service.FindService;
 import cn.gp1.service.LoginService;
 import cn.gp1.service.impl.FindServiceImpl;
@@ -20,7 +23,10 @@ import cn.gp1.service.impl.FindServiceImpl;
 public class FindController {
 	@Resource
 	private FindService findService;
-
+	
+	@Resource
+	private BorrowService bservice;
+	
 	@RequestMapping("/findUser")
 	public String findAll(HttpServletRequest request, HttpSession session) {
 		List<Users> list = findService.findAll();
@@ -44,6 +50,9 @@ public class FindController {
 		if (0 == u.getState()) {
 			findService.delete(bid);
 			u.setState(1);
+			findService.save(u);
+			BorrowData bd= new BorrowData(u.getUid(),bid,new Date());
+			bservice.saveBook(bd);
 			return "redirect:/findBook";
 		} else {
 			return "redirect:/login";

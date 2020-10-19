@@ -47,4 +47,12 @@ public class FindController {
 	return "success";
 	 
  }
+ 
+ @RequestMapping("/delete3")
+ @ResponseBody
+ public String delete3(Integer id){
+	 
+	return "success";
+	 
+ }
 }

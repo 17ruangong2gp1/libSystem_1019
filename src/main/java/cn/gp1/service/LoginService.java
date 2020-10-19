@@ -8,4 +8,5 @@ public interface LoginService {
 	Integer findIdByName(String name);
 	Users findUserByName(String name);
 	Users findUserById(Integer id);
+	   
 }

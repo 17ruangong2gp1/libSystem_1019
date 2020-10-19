@@ -8,4 +8,6 @@ import cn.gp1.pojo.Users;
 public interface FindService {
    List<Users> findAll();
    List<Books> findBook();
+   boolean  delete(Integer bid);
+   void save(Users user);
 }

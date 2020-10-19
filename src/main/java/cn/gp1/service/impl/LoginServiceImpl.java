@@ -39,6 +39,8 @@ public class LoginServiceImpl implements LoginService {
 		// TODO Auto-generated method stub
 		return this.umapper.findUserById(id);
 	}
+
+	
 	
 	
 	

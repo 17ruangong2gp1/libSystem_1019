@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.com">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/js/jquery-3.3.1.js"></script>
+</head>
+<body>
+<h1>修改用户信息</h1>
+	<form id="myForm" action="/editUser">
+		<input type="hidden" name="uid" th:value="${users.uid}" />
+		<input type="hidden" name="gender" th:value="${users.gender}" />
+		用户名: <input type="text" name="uname" id="name" th:value="${user.uname}"><br>
+		年龄:  <input type="text" name="age" th:value="user.age"><br />
+		邮箱:  <input type="email" name="age" th:value="user.email"><br />
+		<input type="reset" value="重置">
+		<input type="submit" id="submitBtn" value="提交">
+	</form>
+	<script type="text/javascript">
+			$("#submitBtn").click(function(){
+				$.ajax({
+					url:'/editUser',
+					type:'POST',
+					data:$('#myForm').serialize(),//序列化表单
+					async: false,  
+		            error: function(request) {  //失败的话
+		                 alert("Connection error");  
+		            },  
+		            success: function(data) {  //成功
+		                 alert(data);  //就将返回的数据显示出来
+		                 window.location.href="/index";
+					
+				})
+			})
+	</script>		
+</body>

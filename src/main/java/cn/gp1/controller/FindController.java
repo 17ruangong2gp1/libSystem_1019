@@ -35,6 +35,7 @@ public class FindController {
  @RequestMapping("/delete")
  @ResponseBody
  public String delete(Integer id){
+	
 	 
 	return "success";
 	 

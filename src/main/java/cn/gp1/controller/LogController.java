@@ -20,6 +20,11 @@ public class LogController {
 			return "login";
 		}
 		
+		@RequestMapping("/login2")
+		public String loginPage2(){
+			return "login";
+		}
+		
 		@RequestMapping("/dologin")
 		@ResponseBody
 		public String dologin(String id,String pwd){

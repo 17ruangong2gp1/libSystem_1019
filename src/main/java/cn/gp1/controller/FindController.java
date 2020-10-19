@@ -36,7 +36,7 @@ public class FindController {
  @ResponseBody
  public String delete(Integer id){
 	
-	return "success    ";
+	return "success";
 	 
  }
 }

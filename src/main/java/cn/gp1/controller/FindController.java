@@ -35,7 +35,7 @@ public class FindController {
  @RequestMapping("/delete")
  @ResponseBody
  public String delete(Integer id){
-	 
+	
 	return "success";
 	 
  }
@@ -43,16 +43,10 @@ public class FindController {
  @RequestMapping("/delete2")
  @ResponseBody
  public String delete2(Integer id){
-	 
+	
 	return "success";
 	 
  }
  
- @RequestMapping("/delete3")
- @ResponseBody
- public String delete3(Integer id){
-	 
-	return "success";
-	 
- }
+
 }

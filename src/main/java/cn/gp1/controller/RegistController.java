@@ -18,7 +18,7 @@ public class RegistController {
 	@RequestMapping("/addUser")
 	@ResponseBody
 	public String addUser(Users u){
-	Integer id=u.getUid();
+	
 	
     Users u1=this.rservice.addUser(u);
 		if (u1!=null) {

@@ -40,7 +40,13 @@ public class LoginServiceImpl implements LoginService {
 		return this.umapper.findUserById(id);
 	}
 
-	
+
+	@Override
+	public void saveUser(Users u) {
+		// TODO Auto-generated method stub
+		 this.uRepository.save(u);
+	}
+
 	
 	
 	

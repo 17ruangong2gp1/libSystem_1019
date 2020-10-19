@@ -22,13 +22,18 @@ public class RegistSerivceImpl implements RegistService {
 	@Override
 	public Users addUser(Users u) {
 		// TODO Auto-generated method stub
-		if(this.uRepository.existsById(u.getUid())){
+		System.out.println(u);
+		/*if(this.uRepository.existsById(u.getUid())){
 			return this.uRepository.save(u);
 		}else{
 			return null;
+		}*/
+		if (uRepository.findByName(u.getUname()).isEmpty()) {
+			return this.uRepository.save(u);
+			
+		}else{
+			return null;
 		}
-		
-		
 	}
 
 	@Override

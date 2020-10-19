@@ -1,6 +1,7 @@
 package cn.gp1.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +28,7 @@ public class LogController {
 		
 		@RequestMapping("/dologin")
 		@ResponseBody
-		public String dologin(String id,String pwd){
+		public String dologin(String id,String pwd,HttpServletRequest req){
 			
 			
 			Users u=this.lservice.findUserByName(id);
@@ -36,6 +37,9 @@ public class LogController {
 				
 			String upwd=u.getUpwd();
 			if (upwd.equals(pwd)) {
+				
+				
+				req.getSession().setAttribute("user", u);
 				return "redirect:findBook";
 			}
 			}

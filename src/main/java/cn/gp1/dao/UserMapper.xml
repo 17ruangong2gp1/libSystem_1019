@@ -1,0 +1,26 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gp1.dao.UserMapper">
+
+
+<!-- Integer findIdByName(String name);
+	Users findUserByName(String name);
+	Users findUserById(Integer id); -->
+	
+	<select id="findIdByName" resultType="Integer">
+		select id from b_user where uname=#{uname}
+	</select>
+	
+	<select id="findUserByName" resultMap="reusers">
+		select uid,uname,upwd from b_user where uname=#{uname}
+	</select>
+	<resultMap type="users" id="reusers">
+		<id property="uid" column="uid"/>
+		<result property="uname" column="uname"/>
+		<result property="upwd" column="upwd"/>
+	</resultMap>
+	
+	
+	<select id="findUserById" resultType="Users">
+		select * from b_user where id=#{id}
+	</select>
+</mapper>

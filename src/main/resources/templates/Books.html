@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="Http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+</head>
+<body>
+   <form >
+   <table border="1">
+     <tr>
+     	<th hidden="hide">ID</th>
+     	<th>书名</th>
+     	<th>借阅（次）</th>
+     	<th>作者</th>
+     	<th>出版社</th>
+     	<th>操作</th>
+     </tr>
+   <tbody th:each="li:${list}" >
+     	<tr >
+     	<td th:text="${li.bid}" hidden="hide"></td>
+         <td th:text="${li.bname}"></td>
+         <td th:text="${li.borrowed}"></td>
+            <td th:text="${li.auther}"></td>
+            <td th:text="${li.phouse}"></td>
+            <td><a th:href="@{/delete(id=${li.bid})}">借阅</a></button></td>
+     	</tr>
+     	</tbody>
+     	</table>
+   </form>
+</body>
+</html>

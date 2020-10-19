@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.lexed.springboot</groupId>
+  <artifactId>springboot-mybatis-thymeleaf</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>  
+   <parent>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-parent</artifactId>
+          <version>2.0.4.RELEASE</version>
+  </parent>
+  
+  <!-- 官方提供的thymeleaf版本比较老旧，我们自己修改版本 -->
+  <properties>
+         <thymeleaf.version>3.0.8.RELEASE</thymeleaf.version>
+         <thymeleaf-layout-dialect.version>2.0.4</thymeleaf-layout-dialect.version>
+         <java.version>1.8</java.version>
+  </properties>
+  
+  <dependencies>
+       <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+       </dependency>
+       <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+       </dependency>
+       <!-- 引入thymeleaf的依赖 -->
+       <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+       </dependency>
+       <!-- mybatis启动器 -->
+       <dependency>
+           <groupId>org.mybatis.spring.boot</groupId>
+           <artifactId>mybatis-spring-boot-starter</artifactId>
+           <version>1.1.1</version>
+       </dependency>
+       <!-- mysql驱动 -->
+       <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+       </dependency>
+       <!-- druid数据库连接池 -->
+       <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.9</version>
+       </dependency>
+       <!-- pageHelper -->
+       <dependency>
+         <groupId>com.github.pagehelper</groupId>
+         <artifactId>pagehelper</artifactId>
+         <version>4.1.6</version>
+       </dependency>
+       <dependency>
+       	<groupId>org.springframework.boot</groupId>
+       	<artifactId>spring-boot-starter-data-jpa</artifactId>
+       </dependency>
+  </dependencies>
+  
+  
+  
+   <!-- 插件：  maven项目为war时，可以加上 -->
+      <build>
+         <plugins>
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-war-plugin</artifactId>
+                 <configuration>
+                     <failOnMissingWebXml>false</failOnMissingWebXml>
+                 </configuration>
+             </plugin>
+         </plugins>
+      </build>
+</project>

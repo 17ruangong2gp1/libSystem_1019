@@ -12,42 +12,39 @@ import cn.gp1.service.LoginService;
 
 @Controller
 public class LogController {
-		
-		@Resource
-		private LoginService lservice;
-	
-		@RequestMapping("/login")
-		public String loginPage(){
-			return "login";
-		}
-		
-		@RequestMapping("/login2")
-		public String loginPage2(){
-			return "login";
-		}
-		
-		@RequestMapping("/dologin")
-		@ResponseBody
-		public String dologin(String id,String pwd,HttpServletRequest req){
-			
-			
-			Users u=this.lservice.findUserByName(id);
-			System.out.println(u);
-			if(u!=null){
-				
-			String upwd=u.getUpwd();
+
+	@Resource
+	private LoginService lservice;
+
+	@RequestMapping("/login")
+	public String loginPage() {
+		return "login";
+	}
+
+	@RequestMapping("/login2")
+	public String loginPage2() {
+		return "login";
+	}
+
+	@RequestMapping("/dologin")
+	public String dologin(String id, String pwd, HttpServletRequest req) {
+
+		Users u = this.lservice.findUserByName(id);
+		System.out.println(u);
+		if (u != null) {
+
+			String upwd = u.getUpwd();
 			if (upwd.equals(pwd)) {
-				
-				
+
 				req.getSession().setAttribute("user", u);
 				return "redirect:findBook";
 			}
-			}
-			return "redirect:login";
 		}
-		
-		@RequestMapping("/main")
-		public String mainPage(){
-			return "mainPage";
-		}
+		return "redirect:login";
+	}
+
+	@RequestMapping("/main")
+	public String mainPage() {
+		return "mainPage";
+	}
 }

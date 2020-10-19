@@ -18,34 +18,37 @@ import cn.gp1.service.impl.FindServiceImpl;
 
 @Controller
 public class FindController {
- @Resource
- private FindService findService;
+	@Resource
+	private FindService findService;
 
- @RequestMapping("/findUser")
- public String findAll(HttpServletRequest request, HttpSession session){
-   List<Users> list=findService.findAll();
-   request.setAttribute("list",list );
-   request.getSession().setAttribute("session", list);
-	return "Users";
-	 
- }
- @RequestMapping("/findBook")
- public String findBook(HttpServletRequest request,HttpSession session){
-	 request.setAttribute("list", findService.findBook());
-	 request.getSession().setAttribute("session",findService.findBook() );
-	return "Books";
- }
- @RequestMapping("/delete")
- public String delete(Integer bid,HttpSession ss){
-	 Users u= (Users) ss.getAttribute("user");
-	 	if(findService.delete(bid)){
-		return "redirect:/findBook";
-		
-		}else{
+	@RequestMapping("/findUser")
+	public String findAll(HttpServletRequest request, HttpSession session) {
+		List<Users> list = findService.findAll();
+		request.setAttribute("list", list);
+		request.getSession().setAttribute("session", list);
+		return "Users";
+
+	}
+
+	@RequestMapping("/findBook")
+	public String findBook(HttpServletRequest request, HttpSession session) {
+		request.setAttribute("list", findService.findBook());
+		request.getSession().setAttribute("session", findService.findBook());
+		return "Books";
+	}
+
+	@RequestMapping("/delete")
+	public String delete(Integer bid, HttpSession ss) {
+		Users u = (Users) ss.getAttribute("user");
+		System.out.println(u);
+		if (0 == u.getState()) {
+			findService.delete(bid);
+			u.setState(1);
+			return "redirect:/findBook";
+		} else {
 			return "redirect:/login";
 		}
-	
-	 
- }
+
+	}
 
 }

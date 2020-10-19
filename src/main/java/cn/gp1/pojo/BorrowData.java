@@ -15,10 +15,7 @@ public class BorrowData {
 		
 		@Column
 		private Integer bid;
-		@Column
-		private String uname;
-		@Column
-		private String bname;
+		
 		@Column
 		private Date ddate;
 		
@@ -44,21 +41,7 @@ public class BorrowData {
 			this.bid = bid;
 		}
 
-		public String getUname() {
-			return uname;
-		}
-
-		public void setUname(String uname) {
-			this.uname = uname;
-		}
-
-		public String getBname() {
-			return bname;
-		}
-
-		public void setBname(String bname) {
-			this.bname = bname;
-		}
+		
 
 		public Date getDdate() {
 			return ddate;
@@ -72,19 +55,17 @@ public class BorrowData {
 			super();
 		}
 
-		public BorrowData(Integer did,  Integer bid, String uname, String bname, Date ddate) {
+		public BorrowData(Integer did,  Integer bid,  Date ddate) {
 			super();
 			this.did = did;
 			this.bid = bid;
-			this.uname = uname;
-			this.bname = bname;
 			this.ddate = ddate;
 		}
 
 		@Override
 		public String toString() {
-			return "BorrowData [did=" + did + ", bid=" + bid + ", uname=" + uname + ", bname=" + bname
-					+ ", ddate=" + ddate + "]";
+			return "BorrowData [did=" + did + ", bid=" + bid + 
+					",ddate =" + ddate + "]";
 		}
 		
 		

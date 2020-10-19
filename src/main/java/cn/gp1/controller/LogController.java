@@ -37,8 +37,8 @@ public class LogController {
 				
 			String upwd=u.getUpwd();
 			if (upwd.equals(pwd)) {
-				u.setState(1);
-				this.lservice.saveUser(u);
+				
+				
 				req.getSession().setAttribute("user", u);
 				return "redirect:findBook";
 			}

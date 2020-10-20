@@ -15,13 +15,13 @@ public class Admins {
 	@Column
 	private String apwd;
 	@Column
-	private int state=0;
+	private boolean state;
 	
 	
 	public Admins() {
 		super();
 	}
-	public Admins( String aname, String apwd, int state) {
+	public Admins( String aname, String apwd, boolean state) {
 		super();
 	
 		this.aname = aname;
@@ -47,10 +47,10 @@ public class Admins {
 	public void setApwd(String apwd) {
 		this.apwd = apwd;
 	}
-	public int getState() {
+	public boolean getState() {
 		return state;
 	}
-	public void setState(int state) {
+	public void setState(boolean state) {
 		this.state = state;
 	}
 	@Override

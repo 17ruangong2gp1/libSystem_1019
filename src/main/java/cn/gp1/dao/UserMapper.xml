@@ -11,12 +11,16 @@
 	</select>
 	
 	<select id="findUserByName" resultMap="reusers">
-		select uid,uname,upwd from b_user where uname=#{uname}
+		select * from b_user where uname=#{uname}
 	</select>
 	<resultMap type="users" id="reusers">
 		<id property="uid" column="uid"/>
 		<result property="uname" column="uname"/>
 		<result property="upwd" column="upwd"/>
+		<result property="state" column="state"/>
+		<result property="age" column="age" />
+		<result property="email" column="email" />
+		<result property="gender" column="gender" />
 	</resultMap>
 	
 	

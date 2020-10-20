@@ -16,7 +16,7 @@ public class Users {
 		@Column
 		private String upwd;
 		@Column
-		private int state=0;
+		private boolean state;
 		@Column
 		@Nullable
 		private String email;
@@ -24,7 +24,7 @@ public class Users {
 		@Nullable
 		private Integer age;
 		@Column
-		private int gender=0;
+		private int gender;
 		
 		
 		public Integer getUid() {
@@ -44,7 +44,7 @@ public class Users {
 			super();
 		}*/
 
-		public Users(String uname, String upwd, int state, String email, Integer age, int gender) {
+		public Users(String uname, String upwd, boolean state, String email, Integer age, int gender) {
 			super();
 			this.uname = uname;
 			this.upwd = upwd;
@@ -72,11 +72,11 @@ public class Users {
 			this.upwd = upwd;
 		}
 
-		public int getState() {
+		public boolean getState() {
 			return state;
 		}
 
-		public void setState(int state) {
+		public void setState(boolean state) {
 			this.state = state;
 		}
 

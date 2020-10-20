@@ -49,16 +49,17 @@ public class FindController {
 	@RequestMapping("/delete")
 	public String delete(Integer bid, HttpSession ss) {
 		Users u = (Users) ss.getAttribute("user");
-		if (u.getState()==0){
+		if (!u.getState()){
 			findService.updateBook(bid);
-			u.setState(1);
+			u.setState(true);
 			findService.save(u);
 			//BorrowData bd= new BorrowData(u.getUid(),bid,new Date());
 			//bservice.saveBook(bd);
 			return "redirect:/findBook";
-		} else {
-			return "redirect:/login";
-		}
+		} 
+			
+			return "findBook";
+		
 
 	}
 

@@ -23,10 +23,8 @@ public class Books {
 	@Column
 	private int borrowed;
 	
-	/*@OneToOne
-	@JoinColumn(name="bid")
-	private BorrowData bd;*/
-
+	@OneToOne(mappedBy="book")
+	private BorrowData borrowdata;
 
 	public Books(Integer bid, String bname, String auther, String phouse, int borrowed) {
 		super();

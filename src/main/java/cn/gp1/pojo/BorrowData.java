@@ -14,18 +14,18 @@ public class BorrowData {
 		private Integer did;
 		
 		@Column
-		private Integer bid;
-		
-		@Column
-		private Integer uid;
-		
-		@Column
 		private Date ddate;
 		
-		/*@OneToOne(mappedBy="uname")
-		private Users users;
-		@OneToOne(mappedBy="bid")
-		private Books books;*/
+		@OneToOne
+		@JoinColumn(name="uid")
+		private Users user;
+		
+		
+		@OneToOne
+		@JoinColumn(name="bid")
+		private Books book;
+		
+		
 		public Integer getDid() {
 			return did;
 		}
@@ -36,21 +36,7 @@ public class BorrowData {
 
 		
 
-		public Integer getUid() {
-			return uid;
-		}
-
-		public void setUid(Integer uid) {
-			this.uid = uid;
-		}
-
-		public Integer getBid() {
-			return bid;
-		}
-
-		public void setBid(Integer bid) {
-			this.bid = bid;
-		}
+		
 
 		
 
@@ -66,20 +52,23 @@ public class BorrowData {
 			super();
 		}
 
-		public BorrowData(Integer uid,  Integer bid,  Date ddate) {
+		public BorrowData(  Date ddate) {
 			super();
 			
-			this.did = 1;
-			this.uid = uid;
-			this.bid = bid;
+			
+			
 			this.ddate = ddate;
 		}
 
-		@Override
-		public String toString() {
-			return "BorrowData [did=" + did + ", bid=" + bid + 
-					",ddate =" + ddate + "]";
+		public BorrowData( Date ddate, Users user, Books book) {
+			super();
+			
+			this.ddate = ddate;
+			this.user = user;
+			this.book = book;
 		}
+
+		
 		
 		
 }

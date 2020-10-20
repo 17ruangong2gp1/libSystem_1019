@@ -11,12 +11,12 @@ import cn.gp1.service.BorrowService;
 public class BorrowServiceImpl implements BorrowService {
 	
 	@Resource
-	private BorrowDataRepository bd;
+	private BorrowDataRepository bdrepository;
 	
 	@Override
 	public void saveBook(BorrowData bd) {
 		// TODO Auto-generated method stub
-		this.bd.save(bd);
+		this.bdrepository.save(bd);
 	}
 
 }

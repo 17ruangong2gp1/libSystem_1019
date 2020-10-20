@@ -13,10 +13,6 @@ public class BorrowData {
 		@Column
 		private Integer did;
 		
-		
-		
-	
-		
 		@Column
 		private Date ddate;
 		
@@ -62,6 +58,14 @@ public class BorrowData {
 			
 			
 			this.ddate = ddate;
+		}
+
+		public BorrowData( Date ddate, Users user, Books book) {
+			super();
+			
+			this.ddate = ddate;
+			this.user = user;
+			this.book = book;
 		}
 
 		

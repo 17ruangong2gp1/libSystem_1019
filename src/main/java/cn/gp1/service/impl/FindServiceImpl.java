@@ -52,4 +52,9 @@ public class FindServiceImpl implements FindService {
 		// TODO Auto-generated method stub
 		this.bookRepository.save(book);
 	}
+	@Override
+	public Books findBookById(Integer id) {
+		// TODO Auto-generated method stub
+		return this.bookRepository.getOne(id);
+	}
 }

@@ -25,6 +25,8 @@ public class Users {
 		private Integer age;
 		@Column
 		private int gender;
+		@OneToOne(mappedBy="user")
+		private BorrowData borrowdata;
 		
 		
 		public Integer getUid() {

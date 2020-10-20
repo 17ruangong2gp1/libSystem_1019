@@ -35,10 +35,26 @@ public class BorrowData {
 		}
 
 		
-
+		
 		
 
 		
+
+		public Users getUser() {
+			return user;
+		}
+
+		public void setUser(Users user) {
+			this.user = user;
+		}
+
+		public Books getBook() {
+			return book;
+		}
+
+		public void setBook(Books book) {
+			this.book = book;
+		}
 
 		public Date getDdate() {
 			return ddate;

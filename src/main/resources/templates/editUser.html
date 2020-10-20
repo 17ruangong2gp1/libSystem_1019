@@ -10,6 +10,7 @@
 	<form id="myForm" action="/editUser">
 		<input type="hidden" name="uid" th:value="${users.uid}" />
 		<input type="hidden" name="gender" th:value="${users.gender}" />
+		<input type="hidden" name="state" th:values="${users.state}" >
 		用户名: <input type="text" name="uname" id="name" th:value="${user.uname}"><br>
 		年龄:  <input type="text" name="age" th:value="user.age"><br />
 		邮箱:  <input type="email" name="age" th:value="user.email"><br />

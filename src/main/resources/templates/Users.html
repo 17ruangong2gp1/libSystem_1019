@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="Http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <form >
+   <table border="1">
+     <tr>
+     	<th hidden="hide">ID</th>
+     	<th>姓名</th>
+     	<th>密码</th>
+     	<th>State</th>
+     	<th>管理</th>
+     </tr>
+   <tbody th:each="li:${list}" >
+     	<tr  >
+     	<td th:text="${li.uid}" hidden="hide"></td>
+         <td th:text="${li.uname}"></td>
+         <td th:text="${li.upwd}"></td>
+           <td th:text="${li.state}"></td>
+           <td>
+           <a th:href="@{/Adelete(uid=${li.uid})}">
+           <button>删除</button>
+           </a>
+           <a th:href="@{/Aupdate(uid=${li.uid})}">
+           <button>修改</button>
+           </a>
+           <a th:href="@{/(uid=${li.uid})}">
+           <button>添加</button>
+           </a>
+           </td>
+
+     	</tr>
+     	</tbody>
+     	</table>
+   </form>
+</body>
+</html>

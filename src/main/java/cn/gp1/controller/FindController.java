@@ -59,7 +59,7 @@ public class FindController {
 			return "redirect:/findBook";
 		} 
 			
-			return "findBook";
+			return "redirect:/findAllData";
 		
 
 	}

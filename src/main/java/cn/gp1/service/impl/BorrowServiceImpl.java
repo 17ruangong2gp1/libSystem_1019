@@ -37,16 +37,18 @@ public class BorrowServiceImpl implements BorrowService {
 		JSONObject result=new JSONObject();
 		try {
 			PageHelper.startPage(pageNum,pageSize);
-			PageInfo<BorrowData> pageinfo=new PageInfo<BorrowData>(this.bdrepository.findAll());
+			PageInfo<BorrowData> pageinfo=new PageInfo<>(this.bdrepository.findAll());
 			result.put("msg", "操作成功");
 			result.put("code", 0);
 			result.put("data", pageinfo.getList());
 			result.put("count", pageinfo.getTotal());
+			System.out.println(result);
 		} catch (Exception e) {
 			// TODO: handle exception
 			result.put("code", 500);
 			result.put("msg", "操作失败");
 		}
+		
 		return result;
 	}
 

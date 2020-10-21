@@ -21,11 +21,6 @@ public class LogController {
 		return "login";
 	}
 
-	@RequestMapping("/login2")
-	public String loginPage2() {
-		return "login";
-	}
-
 	@RequestMapping("/dologin")
 	public String dologin(String id, String pwd, HttpServletRequest req) {
 

@@ -47,20 +47,20 @@ public class FindController {
 	}
 
 	@RequestMapping("/delete")
-	public String delete(Integer bid, HttpSession ss) {
-		Users u = (Users) ss.getAttribute("user");
+	public String delete(Integer bid, HttpServletRequest req) {
+		Users u = (Users) req.getSession().getAttribute("user");
 		Books b=this.findService.findBookById(bid);
 		if (!u.getState()){
 			findService.updateBook(bid);
 			u.setState(true);
 			findService.save(u);
-			BorrowData bd= new BorrowData(new Date(),u,b);
+			BorrowData bd= new BorrowData(new Date(),u,b,u.getUname(),b.getBname());
 			bservice.saveBook(bd);
-			System.out.println(bd);
-			return "redirect:/findBook";
+			System.out.println(bd.toString());
+			return "redirect:/findBorrow";
 		} 
 			
-			return "redirect:/findAllData";
+			return "redirect:/findBorrow";
 		
 
 	}

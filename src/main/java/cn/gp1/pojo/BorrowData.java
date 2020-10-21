@@ -85,16 +85,16 @@ public class BorrowData {
 			this.bname = bname;
 		}
 
-		public BorrowData(Date date, Users u, Books b) {
-			// TODO Auto-generated constructor stub
+		public BorrowData(Date ddate, Users user, Books book, String uname, String bname) {
 			super();
-			this.user=u;
-			this.book=b;
-			this.ddate=date;
-			this.uname=u.getUname();
-			this.bname=b.getBname();
+			this.ddate = ddate;
+			this.user = user;
+			this.book = book;
+			this.uname = uname;
+			this.bname = bname;
 		}
 
+		
 		
 		
 		

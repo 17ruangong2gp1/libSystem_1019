@@ -10,6 +10,6 @@ public interface FindService {
    List<Books> findBook();
    Books findBookById(Integer id);
    boolean updateBook(Integer bid);
-   void save(Users user);
+   void saveUser(Users user);
    void saveBook(Books book);
 }

@@ -5,97 +5,90 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-@Table(name="b_data")
+@Table(name = "b_data")
 public class BorrowData {
-		
-		@Id
-		@GeneratedValue(strategy=GenerationType.IDENTITY)
-		@Column
-		private Integer did;
-		
-		@Column
-		private Date ddate;
-		
-		@OneToOne
-		@JoinColumn(name="uid")
-		private Users user;
-		
-		
-		@OneToOne
-		@JoinColumn(name="bid")
-		private Books book;
-		
-		@Column
-		private String uname;
-		
-		@Column
-		private String bname;
-		
-		
-		public Integer getDid() {
-			return did;
-		}
 
-		public void setDid(Integer did) {
-			this.did = did;
-		}
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column
+	private Integer did;
 
-		public Users getUser() {
-			return user;
-		}
+	@Column
+	private Date ddate;
 
-		public void setUser(Users user) {
-			this.user = user;
-		}
+	@OneToOne
+	private Users user;
 
-		public Books getBook() {
-			return book;
-		}
+	@OneToOne
+	@JoinColumn(name = "bid")
+	private Books book;
 
-		public void setBook(Books book) {
-			this.book = book;
-		}
+	@Column
+	@JoinColumn(name = "uid")
+	private String uname;
 
-		public Date getDdate() {
-			return ddate;
-		}
+	@Column
+	private String bname;
 
-		public void setDdate(Date ddate) {
-			this.ddate = ddate;
-		}
+	public Integer getDid() {
+		return did;
+	}
 
-		public BorrowData() {
-			super();
-		}
+	public void setDid(Integer did) {
+		this.did = did;
+	}
 
-	
-		public String getUname() {
-			return uname;
-		}
+	public Users getUser() {
+		return user;
+	}
 
-		public void setUname(String uname) {
-			this.uname = uname;
-		}
+	public void setUser(Users user) {
+		this.user = user;
+	}
 
-		public String getBname() {
-			return bname;
-		}
+	public Books getBook() {
+		return book;
+	}
 
-		public void setBname(String bname) {
-			this.bname = bname;
-		}
+	public void setBook(Books book) {
+		this.book = book;
+	}
 
-		public BorrowData(Date ddate, Users user, Books book, String uname, String bname) {
-			super();
-			this.ddate = ddate;
-			this.user = user;
-			this.book = book;
-			this.uname = uname;
-			this.bname = bname;
-		}
+	public Date getDdate() {
+		return ddate;
+	}
 
-		
-		
-		
-		
+	public void setDdate(Date ddate) {
+		this.ddate = ddate;
+	}
+
+	public BorrowData() {
+		super();
+	}
+
+	public String getUname() {
+		return uname;
+	}
+
+	public void setUname(String uname) {
+		this.uname = uname;
+	}
+
+	public String getBname() {
+		return bname;
+	}
+
+	public void setBname(String bname) {
+		this.bname = bname;
+	}
+
+	public BorrowData(Date ddate, Users user, Books book, String uname, String bname) {
+		super();
+		this.ddate = ddate;
+		this.user = user;
+		this.book = book;
+		this.uname = uname;
+		this.bname = bname;
+	}
+
 }

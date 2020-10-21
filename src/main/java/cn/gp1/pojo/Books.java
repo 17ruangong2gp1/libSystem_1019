@@ -3,27 +3,27 @@ package cn.gp1.pojo;
 import javax.persistence.*;
 
 @Entity
-@Table(name="book")
+@Table(name = "book")
 public class Books {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
 	private Integer bid;
-	
+
 	@Column
 	private String bname;
-	
+
 	@Column
 	private String auther;
-	
+
 	@Column
 	private String phouse;
-	
+
 	@Column
 	private int borrowed;
-	
-	@OneToOne(mappedBy="book")
+
+	@OneToOne(mappedBy = "book")
 	private BorrowData borrowdata;
 
 	public Books(Integer bid, String bname, String auther, String phouse, int borrowed) {
@@ -41,8 +41,8 @@ public class Books {
 
 	@Override
 	public String toString() {
-		return "Users [bid=" + bid + ", bname=" + bname + ", auther=" + auther + ", phouse=" + phouse
-				+ ", borrowed=" + borrowed + "]";
+		return "Users [bid=" + bid + ", bname=" + bname + ", auther=" + auther + ", phouse=" + phouse + ", borrowed="
+				+ borrowed + "]";
 	}
 
 	public Integer getBid() {

@@ -49,11 +49,12 @@ public class FindController {
 	@RequestMapping("/delete")
 	public String delete(Integer bid, HttpServletRequest req) {
 		Users u = (Users) req.getSession().getAttribute("user");
+		System.out.println(u+"强转u");
 		Books b=this.findService.findBookById(bid);
 		if (!u.getState()){
-			findService.updateBook(bid);
+			this.findService.updateBook(bid);
 			u.setState(true);
-			findService.save(u);
+			this.findService.saveUser(u);
 			BorrowData bd= new BorrowData(new Date(),u,b,u.getUname(),b.getBname());
 			bservice.saveBook(bd);
 			System.out.println(bd.toString());

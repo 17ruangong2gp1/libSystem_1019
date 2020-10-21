@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.annotation.Resource;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import cn.gp1.dao.UserRepository;
 import cn.gp1.pojo.Users;
 import cn.gp1.service.LoginService;
 @Service
+@Transactional
 public class LoginServiceImpl implements LoginService {
 
 	

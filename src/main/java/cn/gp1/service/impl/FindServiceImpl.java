@@ -3,6 +3,7 @@ package cn.gp1.service.impl;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ import cn.gp1.service.FindService;
 import cn.gp1.service.LoginService;
 
 @Service
+@Transactional
 public class FindServiceImpl implements FindService {
 	@Resource
 	private FindRepository findrepostory;
@@ -48,9 +50,9 @@ public class FindServiceImpl implements FindService {
 	}
 
 	@Override
-	public void save(Users user) {
+	public void saveUser(Users user) {
 		// TODO Auto-generated method stub
-		uRepository.save(user);
+		this.uRepository.save(user);
 	}
 
 	@Override

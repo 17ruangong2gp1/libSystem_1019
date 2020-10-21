@@ -1,5 +1,7 @@
 package cn.gp1.service.impl;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,6 +9,7 @@ import cn.gp1.dao.AdminMapper;
 import cn.gp1.pojo.Admins;
 import cn.gp1.service.AdminService;
 @Service
+@Transactional
 public class AdminServiceImpl implements AdminService{
 @Autowired
 private AdminMapper adminMapper;

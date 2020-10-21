@@ -3,6 +3,7 @@ package cn.gp1.service.impl;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import cn.gp1.pojo.*;
 import cn.gp1.pojo.Users;
 import cn.gp1.service.RegistService;
 @Service
+@Transactional
 public class RegistSerivceImpl implements RegistService {
 	
 	@Resource

@@ -3,6 +3,7 @@ package cn.gp1.service.impl;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import cn.gp1.dao.BorrowDataRepository;
 import cn.gp1.pojo.BorrowData;
 import cn.gp1.service.BorrowService;
 @Service
+@Transactional
 public class BorrowServiceImpl implements BorrowService {
 	
 	@Resource

@@ -6,7 +6,7 @@
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" th:src="@{layui.js}"></script>
+<script type="text/javascript" th:src="@{/layui/layui.js}"></script>
 </head>
 <body>
 <!-- 	<div id="showData">
@@ -43,6 +43,21 @@
 </script> -->
 	
 <table id="t_demo" ></table>
+<script type="text/javascript">
+	table.render({
+		elem:'#t_demo',
+		url:'/findAllData',
+		page:true,
+		even:true,
+		limits:[5,10,20],
+		skin:'line',
+		cols:[[
+			{field:'uname',title:'借书人姓名',width:75},
+			{field:'bname',title:'被借书书名',width:33%},
+			{field:'ddate',title:'结束时间',width:50%}
+		]]
+	});
+</script>
 
 
 

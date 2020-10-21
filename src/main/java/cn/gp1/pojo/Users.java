@@ -24,7 +24,7 @@ public class Users {
 		@Nullable
 		private Integer age;
 		@Column
-		private int gender;
+		private boolean gender;
 		@OneToOne(mappedBy="user")
 		private BorrowData borrowdata;
 		
@@ -46,7 +46,7 @@ public class Users {
 			super();
 		}*/
 
-		public Users(String uname, String upwd, boolean state, String email, Integer age, int gender) {
+		public Users(String uname, String upwd, boolean state, String email, Integer age, boolean gender) {
 			super();
 			this.uname = uname;
 			this.upwd = upwd;
@@ -98,11 +98,11 @@ public class Users {
 			this.age = age;
 		}
 
-		public int getGender() {
+		public boolean getGender() {
 			return gender;
 		}
 
-		public void setGender(int gender) {
+		public void setGender(boolean gender) {
 			this.gender = gender;
 		}
 

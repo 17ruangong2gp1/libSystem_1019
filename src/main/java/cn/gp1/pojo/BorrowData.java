@@ -25,6 +25,12 @@ public class BorrowData {
 		@JoinColumn(name="bid")
 		private Books book;
 		
+		@Column
+		private String uname;
+		
+		@Column
+		private String bname;
+		
 		
 		public Integer getDid() {
 			return did;
@@ -33,12 +39,6 @@ public class BorrowData {
 		public void setDid(Integer did) {
 			this.did = did;
 		}
-
-		
-		
-		
-
-		
 
 		public Users getUser() {
 			return user;
@@ -75,13 +75,31 @@ public class BorrowData {
 			
 			this.ddate = ddate;
 		}
+		
+		
+		
+		public String getUname() {
+			return uname;
+		}
 
-		public BorrowData( Date ddate, Users user, Books book) {
+		public void setUname(String uname) {
+			this.uname = uname;
+		}
+
+		public String getBname() {
+			return bname;
+		}
+
+		public void setBname(String bname) {
+			this.bname = bname;
+		}
+
+		public BorrowData( Date ddate, String uname, String bname) {
 			super();
 			
 			this.ddate = ddate;
-			this.user = user;
-			this.book = book;
+			this.uname = uname;
+			this.bname = bname;
 		}
 
 		

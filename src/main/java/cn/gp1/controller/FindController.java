@@ -54,7 +54,7 @@ public class FindController {
 			findService.updateBook(bid);
 			u.setState(true);
 			findService.save(u);
-			BorrowData bd= new BorrowData(new Date(),u.getUname(),b.getBname());
+			BorrowData bd= new BorrowData(new Date(),u,b);
 			bservice.saveBook(bd);
 			System.out.println(bd);
 			return "redirect:/findBook";

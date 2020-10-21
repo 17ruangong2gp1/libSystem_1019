@@ -68,16 +68,7 @@ public class BorrowData {
 			super();
 		}
 
-		public BorrowData(  Date ddate) {
-			super();
-			
-			
-			
-			this.ddate = ddate;
-		}
-		
-		
-		
+	
 		public String getUname() {
 			return uname;
 		}
@@ -94,12 +85,14 @@ public class BorrowData {
 			this.bname = bname;
 		}
 
-		public BorrowData( Date ddate, String uname, String bname) {
+		public BorrowData(Date date, Users u, Books b) {
+			// TODO Auto-generated constructor stub
 			super();
-			
-			this.ddate = ddate;
-			this.uname = uname;
-			this.bname = bname;
+			this.user=u;
+			this.book=b;
+			this.ddate=date;
+			this.uname=u.getUname();
+			this.bname=b.getBname();
 		}
 
 		

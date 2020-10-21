@@ -58,11 +58,12 @@ public class FindController {
 			BorrowData bd= new BorrowData(new Date(),u,b,u.getUname(),b.getBname());
 			bservice.saveBook(bd);
 			System.out.println(bd.toString());
-			return "redirect:/findBorrow";
-		} 
-			
-			return "redirect:/findBorrow";
 		
+			return "redirect:/findBorrow";
+		}else{ 
+			System.out.println("再次执行");
+			return "redirect:/findBorrow";
+		}
 
 	}
 

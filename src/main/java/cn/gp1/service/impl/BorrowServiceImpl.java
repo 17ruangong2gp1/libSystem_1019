@@ -38,6 +38,7 @@ public class BorrowServiceImpl implements BorrowService {
 		// TODO Auto-generated method stub
 		JSONObject result=new JSONObject();
 		try {
+			System.out.println("使用分页");
 			PageHelper.startPage(pageNum,pageSize);
 			PageInfo<BorrowData> pageinfo=new PageInfo<>(this.bdrepository.findAll());
 			result.put("msg", "操作成功");

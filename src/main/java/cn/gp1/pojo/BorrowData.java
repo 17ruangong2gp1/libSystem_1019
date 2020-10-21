@@ -17,6 +17,7 @@ public class BorrowData {
 	private Date ddate;
 
 	@OneToOne
+	@JoinColumn(name = "uid")
 	private Users user;
 
 	@OneToOne
@@ -24,7 +25,6 @@ public class BorrowData {
 	private Books book;
 
 	@Column
-	@JoinColumn(name = "uid")
 	private String uname;
 
 	@Column

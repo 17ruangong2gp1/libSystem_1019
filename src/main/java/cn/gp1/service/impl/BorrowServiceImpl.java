@@ -6,6 +6,10 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.alibaba.fastjson.JSONObject;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+
 import cn.gp1.dao.BorrowDataRepository;
 import cn.gp1.pojo.BorrowData;
 import cn.gp1.service.BorrowService;
@@ -25,6 +29,25 @@ public class BorrowServiceImpl implements BorrowService {
 	public List<BorrowData> findAllData() {
 		// TODO Auto-generated method stub
 		return this.bdrepository.findAll();
+	}
+
+	@Override
+	public JSONObject getDataList(int pageNum, int pageSize) {
+		// TODO Auto-generated method stub
+		JSONObject result=new JSONObject();
+		try {
+			PageHelper.startPage(pageNum,pageSize);
+			PageInfo<BorrowData> pageinfo=new PageInfo<BorrowData>(this.bdrepository.findAll());
+			result.put("msg", "操作成功");
+			result.put("code", 0);
+			result.put("data", pageinfo.getList());
+			result.put("count", pageinfo.getTotal());
+		} catch (Exception e) {
+			// TODO: handle exception
+			result.put("code", 500);
+			result.put("msg", "操作失败");
+		}
+		return result;
 	}
 
 }

@@ -7,7 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.alibaba.fastjson.JSONObject;
 
 import cn.gp1.pojo.BorrowData;
 import cn.gp1.service.BorrowService;
@@ -23,18 +27,9 @@ public class BorrowController {
 			return "borrowDataPage";
 		}
 		
-		@RequestMapping("/findAllData")
+		@RequestMapping(value="/findAllData",method=RequestMethod.GET)
 		@ResponseBody
-		public List findAllData(HttpServletRequest req){
-			List <BorrowData> list=this.borrowservice.findAllData();
-			try{
-				req.getSession().setAttribute("list", list);
-				return list;
-			}catch (Exception e) {
-				// TODO: handle exception
-				e.printStackTrace();
-			}
-			return null;
-			
+		public JSONObject findAllData(@RequestParam(value="pageNum",required=false,defaultValue="1") int pageNum,@RequestParam(value="pageSize",required=false,defaultValue="10")int pageSize){
+			return this.borrowservice.getDataList(pageNum, pageSize);
 		}
 }

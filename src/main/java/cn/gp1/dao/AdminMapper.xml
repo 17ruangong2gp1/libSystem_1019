@@ -3,5 +3,9 @@
  <select id="findByname" parameterType="String" resultType="Admins">
    select *from b_admin where aname=#{name}
  </select>
+ <delete id="delete" parameterType="Integer">
+   delete from b_user where uid=#{uid}
+ </delete>
+
 </mapper>
 

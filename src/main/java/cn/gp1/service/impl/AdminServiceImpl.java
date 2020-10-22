@@ -18,5 +18,20 @@ private AdminMapper adminMapper;
 		// TODO Auto-generated method stub
 		return adminMapper.findByname(name);
 	}
+	@Override
+	public boolean delete(Integer aid) {
+		// TODO Auto-generated method stub
+		return  this.adminMapper.delete(aid);
+	}
+	@Override
+	public boolean update(Integer aid) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean add(Integer aid) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }

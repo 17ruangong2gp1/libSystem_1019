@@ -29,4 +29,26 @@ public class AdminController {
 	 }
 		 return "AdminLogin";	 
  }
+ //删除
+ @RequestMapping("/Adelete")
+ public String Adelete(Integer aid){
+	 System.out.println(aid);
+	 if(adminService.delete(aid)){
+		 return "redirect:findUser";
+	 }
+	 return "AdminLogin";
+	 
+ }
+ /*//修改
+ @RequestMapping("/Aupdate")
+ public String Aupdate(Integer aid){
+	return null;
+	 
+ }
+ //添加
+ @RequestMapping("/Aadd")
+ public String Aadd(Integer aid){
+	return null;
+	 
+ }*/
 }

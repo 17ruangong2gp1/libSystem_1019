@@ -15,10 +15,10 @@ public class BorrowData {
 
 	@Column
 	private Date ddate;
-	/*@Column
+	@Column
 	private Integer uid;
 	@Column
-	private Integer bid;*/
+	private Integer bid;
 	
 	@OneToOne
 	@JoinColumn(name = "uid",insertable=false,updatable=false)
@@ -88,7 +88,7 @@ public class BorrowData {
 	
 	
 
-	/*public Integer getUid() {
+	public Integer getUid() {
 		return uid;
 	}
 
@@ -102,15 +102,15 @@ public class BorrowData {
 
 	public void setBid(Integer bid) {
 		this.bid = bid;
-	}*/
+	}
 
-	public BorrowData(Date ddate, Users user, Books book, String uname, String bname) {
+	public BorrowData(Date ddate, Users user, Books book) {
 		super();
 		this.ddate = ddate;
-		this.user = user;
-		this.book = book;
-		this.uname = uname;
-		this.bname = bname;
+		this.uid = user.getUid();
+		this.bid = book.getBid();
+		this.uname = user.getUname();
+		this.bname = book.getBname();
 	}
 
 }

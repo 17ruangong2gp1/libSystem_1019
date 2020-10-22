@@ -14,7 +14,7 @@ import cn.gp1.service.AdminService;
 public class AdminController {
 @Resource
 	private AdminService adminService;
-@RequestMapping("/Admin")
+@RequestMapping("/admin")
   public String Admin(){
 	return "AdminLogin";
 	 

@@ -5,41 +5,22 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<a>借阅书籍</a>
+		<a href="/findAllData">获取信息 </a>
+		
 		
 		<a>修改个人信息</a>
 		
 		<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" th:src="@{/layui/layui.js}"></script>
 </head>
 <body>
 
 	
-<table id="t_demo" lay-filter="data_table"></table>
-<script type="text/javascript" th:inline="none">
-	layui.use(['table','form'],function(){
-		var table=layui.table;
-		var form=layui.form;
-	
-		table.render({
-			elem:'#t_demo',
-			url:'/findAllData',
-			page:true,
-			even:true,
-			limits:[5,10,20],
-			cols:[[
-				{field:'uname',title:'借书人姓名',width:'10%',align:'center'},
-				{field:'bname',title:'被借书书名',width:'13%',align:'center'},
-				{field:'ddate',title:'结束时间',width:'33%',align:'center'}
-			]]
-		});
-	})
-	
-</script>
+
+</script> -->
 		
 		
 </body>

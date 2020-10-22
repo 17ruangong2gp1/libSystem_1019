@@ -10,4 +10,5 @@ public interface BorrowService {
 	void saveBook(BorrowData bd);
 	List<BorrowData> findAllData();
 	JSONObject getDataList(int pageNum, int pageSize);
+	
 }

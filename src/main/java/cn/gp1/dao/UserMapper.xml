@@ -27,4 +27,8 @@
 	<select id="findUserById" resultType="Users">
 		select * from b_user where id=#{id}
 	</select>
+	
+	<select id="findAllData" resultType="borrowdata">
+		select * from b_data 
+	</select>
 </mapper>

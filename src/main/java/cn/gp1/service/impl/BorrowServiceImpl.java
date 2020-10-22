@@ -12,6 +12,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
 import cn.gp1.dao.BorrowDataRepository;
+import cn.gp1.dao.UserMapper;
 import cn.gp1.pojo.BorrowData;
 import cn.gp1.service.BorrowService;
 @Service
@@ -20,6 +21,8 @@ public class BorrowServiceImpl implements BorrowService {
 	
 	@Resource
 	private BorrowDataRepository bdrepository;
+	@Resource
+	private UserMapper umapper;
 	
 	@Override
 	public void saveBook(BorrowData bd) {
@@ -40,11 +43,14 @@ public class BorrowServiceImpl implements BorrowService {
 		try {
 			System.out.println("使用分页");
 			PageHelper.startPage(pageNum,pageSize);
-			PageInfo<BorrowData> pageinfo=new PageInfo<>(this.bdrepository.findAll());
+			//PageInfo<BorrowData> pageinfo=new PageInfo<>(this.umapper.findAllData());
+			//PageHelper.startPage(pageNum, pageSize);
+			List<BorrowData> datalist= this.umapper.findAllData();
+			PageInfo<BorrowData> pageInfo=new PageInfo<>(datalist);
 			result.put("msg", "操作成功");
 			result.put("code", 0);
-			result.put("data", pageinfo.getList());
-			result.put("count", pageinfo.getTotal());
+			result.put("data", pageInfo.getList());
+			result.put("count", pageInfo.getTotal());
 			System.out.println(result);
 		} catch (Exception e) {
 			// TODO: handle exception

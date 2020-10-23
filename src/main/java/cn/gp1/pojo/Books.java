@@ -26,7 +26,9 @@ public class Books {
 	private int borrowed;
 
 	@ManyToMany
-	@JoinTable(name="b_data",joinColumns={@JoinColumn(name="bid")}, inverseJoinColumns={@JoinColumn(name="uid")})
+	@JoinTable(name="b_data",joinColumns={
+			@JoinColumn(name="bid")}, inverseJoinColumns={
+					@JoinColumn(name="uid")})
 	private List<Users> users;
 
 	public Books(Integer bid, String bname, String auther, String phouse, int borrowed) {

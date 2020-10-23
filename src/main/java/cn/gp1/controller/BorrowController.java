@@ -25,6 +25,7 @@ public class BorrowController {
 		@RequestMapping("/findBorrow")
 		public String findBorrow(){
 			System.out.println("是否调用");
+			//return "borrowDataPage";
 			return "mainPage";
 		}
 		

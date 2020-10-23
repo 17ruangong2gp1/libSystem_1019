@@ -29,7 +29,9 @@ public class Users {
 	@Column
 	private boolean gender;
 	@ManyToMany
-	@JoinTable(name="b_data",joinColumns={@JoinColumn(name="uid")}, inverseJoinColumns={@JoinColumn(name="bid")})
+	@JoinTable(name="b_data",joinColumns={
+			@JoinColumn(name="uid")}, inverseJoinColumns={
+					@JoinColumn(name="bid")})
 	private List<Books> books;
 
 	public Integer getUid() {

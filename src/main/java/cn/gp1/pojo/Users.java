@@ -28,8 +28,9 @@ public class Users {
 	private Integer age;
 	@Column
 	private boolean gender;
-	@OneToOne(mappedBy = "user")
-	private BorrowData borrowdata;
+	@ManyToMany
+	@JoinTable(name="b_data",joinColumns={@JoinColumn(name="uid")}, inverseJoinColumns={@JoinColumn(name="bid")})
+	private List<Books> book;
 
 	public Integer getUid() {
 		return uid;

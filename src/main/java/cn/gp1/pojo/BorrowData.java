@@ -20,13 +20,13 @@ public class BorrowData {
 	@Column
 	private Integer bid;
 	
-	@OneToOne
+	/*@OneToOne
 	@JoinColumn(name = "uid",insertable=false,updatable=false)
 	private Users user;
 
 	@OneToOne
 	@JoinColumn(name = "bid",insertable=false,updatable=false)
-	private Books book;
+	private Books book;*/
 
 	@Column
 	private String uname;
@@ -42,7 +42,7 @@ public class BorrowData {
 		this.did = did;
 	}
 
-	public Users getUser() {
+/*	public Users getUser() {
 		return user;
 	}
 
@@ -56,7 +56,7 @@ public class BorrowData {
 
 	public void setBook(Books book) {
 		this.book = book;
-	}
+	}*/
 
 	public Date getDdate() {
 		return ddate;

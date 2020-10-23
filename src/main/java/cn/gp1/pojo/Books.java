@@ -1,5 +1,7 @@
 package cn.gp1.pojo;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -23,8 +25,9 @@ public class Books {
 	@Column
 	private int borrowed;
 
-	@OneToOne(mappedBy = "book")
-	private BorrowData borrowdata;
+	@ManyToMany
+	@JoinTable(name="b_data",joinColumns={@JoinColumn(name="bid")}, inverseJoinColumns={@JoinColumn(name="uid")})
+	private List<Users> users;
 
 	public Books(Integer bid, String bname, String auther, String phouse, int borrowed) {
 		super();

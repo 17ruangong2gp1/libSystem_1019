@@ -30,7 +30,7 @@ public class Users {
 	private boolean gender;
 	@ManyToMany
 	@JoinTable(name="b_data",joinColumns={@JoinColumn(name="uid")}, inverseJoinColumns={@JoinColumn(name="bid")})
-	private List<Books> book;
+	private List<Books> books;
 
 	public Integer getUid() {
 		return uid;
